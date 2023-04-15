@@ -1,5 +1,4 @@
 import * as lib from "./libraries";
-import * as $ from "jquery";
 
 // apiアクセス
 const getMessage = async () => {
@@ -13,13 +12,13 @@ const getMessage = async () => {
       }
     }
   )
-  .catch((error) => {
-    console.log(error.toJSON());
+  .catch((error: Error) => {
+    console.log(error.message);
   });
   return response;
 }
-$('#btn').on('click', async () => {
-  console.log("waiting...");
-  const response = await getMessage();
-  $('#message').html(response['data'].answer);
-});
+// $('#btn').on('click', async () => {
+//   console.log("waiting...");
+//   const response = await getMessage();
+//   $('#message').html(response['data'].answer);
+// });
